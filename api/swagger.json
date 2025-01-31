@@ -2,11 +2,19 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Modern WebAPI",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "description": "A modern WebAPI implementation with Next.js and Express"
   },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Development server"
+    }
+  ],
   "paths": {
-    "/users": {
+    "/api/users": {
       "get": {
+        "tags": ["Users"],
         "summary": "Get all users",
         "responses": {
           "200": {
@@ -32,12 +40,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "integer"
+            "type": "integer",
+            "format": "int64"
           },
           "name": {
             "type": "string"
           }
-        }
+        },
+        "required": ["id", "name"]
       }
     }
   }
